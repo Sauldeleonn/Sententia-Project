@@ -1,0 +1,191 @@
+.SearchMusicPage {
+    margin: 0 auto;
+    justify-content: center;
+    height:100px;
+    width: 1300px;
+    background-color: #0FA4AF;
+    display: flex;
+    align-items: center;
+}
+
+.SearchMusicPage ul {
+    display: flex;
+    padding: 0;
+    list-style-type: none;
+    margin: 0;
+}
+
+.SearchMusicPage ul li {
+    font-size: 20px;
+    width: 8em;
+    height: 2em;
+    color: orange;
+    border-left: 0.08em solid;
+    position: relative;
+    margin: 0 1.5em 0 0; /* Espaciado horizontal entre botones */
+    cursor: pointer;
+}
+
+.SearchMusicPage ul li::before,
+.SearchMusicPage ul li::after {
+    content: '';
+    position: absolute;
+    width: inherit;
+    border-left: inherit;
+    z-index: -1;
+}
+
+.SearchMusicPage ul li::before {
+    height: 80%;
+    top: 10%;
+    left: calc(-0.15em - 0.08em * 2);
+    filter: brightness(0.8);
+}
+
+.SearchMusicPage ul li::after {
+    height: 60%;
+    top: 20%;
+    left: calc(-0.15em * 2 - 0.08em * 3);
+    filter: brightness(0.6);
+}
+
+.SearchMusicPage ul li span {
+    position: relative;
+    height: 120%;
+    top: -10%;
+    box-sizing: border-box;
+    border: 0.08em solid;
+    background-color: #024950;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: sans-serif;
+    text-transform: capitalize;
+    transform: translateX(calc(-0.15em * 3 - 0.08em * 2));
+    transition: 0.3s;
+}
+
+.SearchMusicPage ul li:hover span {
+    transform: translateX(0.15em);
+}
+
+.search-container {
+    display: flex;
+    align-items: center;
+    margin-left: 1em; /* Margen izquierdo para separar del último botón */
+}
+
+.search-label {
+    font-size: 20px;
+    color: rgb(255, 175, 25);
+    margin-right: 0.8em;
+}
+
+.search-input {
+    height: 2em;
+    font-size: 16px;
+    padding: 0.2em;
+    border: 1px solid #ccc;
+    border-radius: 0.2em;
+}
+
+
+
+
+
+
+
+
+
+/*  Top populares de la semana css  */
+
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu+Mono&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+
+.container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  height: 500px;
+  gap: 10px;
+
+  > div {
+    flex: 0 0 120px;
+    border-radius: 0.5rem;
+    transition: 0.5s ease-in-out;
+    cursor: pointer;
+    box-shadow: 1px 5px 15px #1e0e3e;
+    position: relative;
+    overflow: hidden;
+
+    &:nth-of-type(1) {
+      background: url("https://i.scdn.co/image/ab67616d0000b273382514f0114ba8f4a16d5db4")
+        no-repeat 50% / cover;
+    }
+    &:nth-of-type(2) {
+      background: url("https://i.scdn.co/image/ab67616d0000b27301988601f2c1ac0d6e60c772")
+        no-repeat 50% / cover;
+    }
+    &:nth-of-type(3) {
+      background: url("https://i.scdn.co/image/ab67616d0000b2735393c5d3cac806092a9bc468")
+        no-repeat 50% / cover;
+    }
+    &:nth-of-type(4) {
+      background: url("https://i.scdn.co/image/ab67616d0000b2739c076fb69a52578d6441d57e")
+        no-repeat 50% / cover;
+    }
+    &:nth-of-type(5) {
+      background: url("https://i.scdn.co/image/ab67616d0000b27370dbc9f47669d120ad874ec1")
+        no-repeat 50% / cover;
+    }
+    &:nth-of-type(6) {
+      background: url("https://i.scdn.co/image/ab67616d0000b273ee0f38410382a255e4fb15f4")
+        no-repeat 50% / cover;
+    }
+
+    .content {
+      font-size: 1.5rem;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      padding: 15px;
+      opacity: 0;
+      flex-direction: column;
+      height: 100%;
+      justify-content: flex-end;
+      background: rgb(2, 2, 46);
+      background: linear-gradient(
+        0deg,
+        rgba(2, 2, 46, 0.6755077030812324) 0%,
+        rgba(255, 255, 255, 0) 100%
+      );
+      transform: translatey(100%);
+      transition: opacity 0.5s ease-in-out, transform 0.5s 0.2s;
+      visibility: hidden;
+
+      span {
+        display: block;
+        margin-top: 5px;
+        font-size: 1.2rem;
+      }
+    }
+
+    &:hover {
+      flex: 0 0 250px;
+      box-shadow: 1px 3px 15px #7645d8;
+      transform: translatey(-30px);
+    }
+
+    &:hover .content {
+      opacity: 1;
+      transform: translatey(0%);
+      visibility: visible;
+    }
+  }
+}
