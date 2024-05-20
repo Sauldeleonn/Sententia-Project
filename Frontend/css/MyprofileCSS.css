@@ -1,0 +1,302 @@
+/* Profile Section */
+.profile {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.profile-picture {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  /* Ajustado a 50% para mantener la proporción circular */
+  margin-right: 10px;
+  background-image: url("https://w7.pngwing.com/pngs/867/694/png-transparent-user-profile-default-computer-icons-network-video-recorder-avatar-cartoon-maker-blue-text-logo.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+
+.edit-button {
+  font-size: 12px;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #4CAF50;
+  color: #fff;
+  cursor: pointer;
+}
+
+.user-info {
+  margin-left: 20px;
+}
+
+.user-info h2 {
+  font-size: 18px;
+  margin-bottom: 5px;
+}
+
+.user-info p {
+  font-size: 14px;
+  color: #666;
+}
+
+
+/*  Todo lo de abajo del perfil  */
+.MyProfileStuff {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  /* Centra horizontalmente el contenido */
+}
+
+
+
+/* Music Section */
+.music-section {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.watchlist {
+  width: 50%;
+  margin: 0 auto;
+  padding: 20px;
+  border: 2px solid #003135;
+  border-radius: 10px;
+  background-color: #0fa4af;
+}
+
+.watchlist h3 {
+  color: #000000;
+}
+
+.watchlist ol li {
+  font-size: 15px;
+  text-align: justify;
+  color: rgb(0, 0, 0);
+  margin-bottom: 10px;
+}
+
+
+
+.music-box {
+  /* Agrega un margen superior para separarlo del título */
+  background-color: #024950;
+  margin-top: 10px;
+  padding: 20px;
+  border: 2.5px solid #ddd;
+  border-radius: 10px;
+  /* Agrega un margen inferior para separarlo de las estrellas */
+  width: calc(100% - 300px);
+  /* Ajusta el ancho según tus necesidades */
+  margin-bottom: 20px;
+}
+
+.music-box h3 {
+  color: #fff;
+}
+
+.music-box p {
+  font-size: 15px;
+  text-align: justify;
+  color: aliceblue;
+  margin-bottom: 10px;
+}
+
+
+.star-container {
+  margin: 0;
+  padding-top: 10px;
+}
+
+
+
+
+.music-box h3 {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.watchlist h3 {
+  width: 300px;
+  /* Ajusta el ancho según tus necesidades */
+  margin-left: 20px;
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.watchlist ol {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.watchlist li {
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+
+
+:root {
+  --enlarge: scale(1.25);
+  --page-color: steelblue;
+  --star-primary-color: gold;
+  --star-secondary-color: darkgoldenrod;
+}
+
+.containerStars {
+  display: grid;
+  margin: 0;
+  padding: 0;
+  place-content: center;
+}
+
+.star-container {
+  margin: 0;
+  padding: 0;
+}
+
+
+.star-group {
+  display: grid;
+  font-size: clamp(0.3em, 1.5vw, 1.5em);
+  /* Further reduced the maximum size of the stars */
+  grid-auto-flow: column;
+}
+
+
+/* reset native input styles */
+.star {
+  -webkit-appearance: none;
+  align-items: center;
+  appearance: none;
+  cursor: pointer;
+  display: grid;
+  font: inherit;
+  height: 1.15em;
+  justify-items: center;
+  margin: 0;
+  place-content: center;
+  position: relative;
+  width: 1.15em;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .star {
+    transition: all 0.25s;
+  }
+
+  .star:before,
+  .star:after {
+    transition: all 0.25s;
+  }
+}
+
+.star:before,
+.star:after {
+  color: var(--star-primary-color);
+  position: absolute;
+}
+
+.star:before {
+  content: "☆";
+}
+
+.star:after {
+  content: "✦";
+  font-size: 25%;
+  opacity: 0;
+  right: 20%;
+  top: 20%;
+}
+
+/* The checked radio button and each radio button preceding */
+.star:checked:before,
+.star:has(~ .star:checked):before {
+  content: "★";
+}
+
+#two:checked:after,
+.star:has(~ #two:checked):after {
+  opacity: 1;
+  right: 14%;
+  top: 10%;
+}
+
+#three:checked:before,
+.star:has(~ #three:checked):before {
+  transform: var(--enlarge);
+}
+
+#three:checked:after,
+.star:has(~ #three:checked):after {
+  opacity: 1;
+  right: 8%;
+  top: 2%;
+  transform: var(--enlarge);
+}
+
+#four:checked:before,
+.star:has(~ #four:checked):before {
+  text-shadow: 0.05em 0.033em 0px var(--star-secondary-color);
+  transform: var(--enlarge);
+}
+
+#four:checked:after,
+.star:has(~ #four:checked):after {
+  opacity: 1;
+  right: 8%;
+  top: 2%;
+  transform: var(--enlarge);
+}
+
+#five:checked:before,
+.star:has(~ #five:checked):before {
+  text-shadow: 0.05em 0.033em 0px var(--star-secondary-color);
+  transform: var(--enlarge);
+}
+
+#five:checked:after,
+.star:has(~ #five:checked):after {
+  opacity: 1;
+  right: 8%;
+  text-shadow: 0.14em 0.075em 0px var(--star-secondary-color);
+  top: 2%;
+  transform: var(--enlarge);
+}
+
+.star-group:has(> #five:checked) #one {
+  transform: rotate(-15deg);
+}
+
+.star-group:has(> #five:checked) #two {
+  transform: translateY(-20%) rotate(-7.5deg);
+}
+
+.star-group:has(> #five:checked) #three {
+  transform: translateY(-30%);
+}
+
+.star-group:has(> #five:checked) #four {
+  transform: translateY(-20%) rotate(7.5deg);
+}
+
+.star-group:has(> #five:checked) #five {
+  transform: rotate(15deg);
+}
+
+.star:focus {
+  outline: none;
+}
+
+.star:focus-visible {
+  border-radius: 8px;
+  outline: 2px dashed var(--star-primary-color);
+  outline-offset: 8px;
+  transition: all 0s;
+}

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Sententia</title>
+  <link rel="stylesheet" href="css/SententiaHome.css">
+  <link rel="stylesheet" href="css/LogIn.css">
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css'><link rel="stylesheet" href="./style.css">
+  <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+  <header>
+    <nav>
+      <div class="navbar">
+        <i class='bx bx-menu'></i>
+        <div class="logo"><a href="SententiaHome.html">Sententia</a></div>
+        <div class="nav-links">
+          <div class="sidebar-logo">
+            <span class="logo-name">Sententia</span>
+            <i class='bx bx-x'></i>
+          </div>
+          <ul class="links">
+            <li><a href="SententiaHome.html">HOME</a></li>
+            <li><a href="Music.html">Music</a></li>
+            <li><a href="Discover.Html">Discover</a></li>
+            <li><a href="Lists.html">Lists</a></li>
+            <li><a href="#">User</a></li>
+            <li><a href="LogIn.html">Login</a></li>
+            <li><a href="MyProfile.html">My Profile</a></li>
+            <li>
+              <a href="#">More</a>
+              <i class='bx bxs-chevron-down js-arrow arrow '></i>
+              <ul class="js-sub-menu sub-menu">
+                <li><a href="#">Artist</a></li>
+                <li><a href="#">Bands</a></li>
+                <li><a href="#">Album</a></li>
+                <li><a href="#">Songs</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+        <div class="search-box">
+          <i class='bx bx-search'></i>
+          <div class="input-box">
+            <input type="text" placeholder="Search...">
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+
+  <main>
+
+    <br><br>
+    <div class="LogInCard">
+        <div class="container" id="container">
+            <div class="form-container sign-up-container">
+                <form action="#">
+                    <h1>Create Account</h1>
+                    <span>or use your email for registration</span>
+                    <input type="text" placeholder="Username" />
+                    <input type="email" placeholder="Email" />
+                    <input type="password" placeholder="Password" />
+                    <button>Sign Up</button>
+                </form>
+            </div>
+            <div class="form-container sign-in-container">
+                <form action="#">
+                    <h1>Sign in</h1>
+                    <span>or use your account</span>
+                    <input type="email" placeholder="Username" />
+                    <input type="password" placeholder="Password" />
+                    <a href="#">Forgot your password?</a>
+                    <button>Sign In</button>
+                </form>
+            </div>
+            <div class="overlay-container">
+                <div class="overlay">
+                    <div class="overlay-panel overlay-left">
+                        <h1>Welcome Back!</h1>
+                        <p>To keep connected with us please login with your personal info</p>
+                        <button class="ghost" id="signIn">Sign In</button>
+                    </div>
+                    <div class="overlay-panel overlay-right">
+                        <h1>Hello!</h1>
+                        <p>Enter your personal details and share your sense of music with us!</p>
+                        <button class="ghost" id="signUp">Sign Up</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+  </main>
+
+  <script src="js/SententiaNavBar.js"></script>
+  <script src="js/LogIn.js"></script>
+</body>
+
+</html>
