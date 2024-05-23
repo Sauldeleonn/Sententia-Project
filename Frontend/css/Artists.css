@@ -1,0 +1,66 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #87CFD6;
+}
+
+.containerArtist {
+    width: 80%;
+    margin: 20px auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.containerArtist .banner {
+    background-color: #0FA4AF;
+    padding: 20px;
+    text-align: center;
+    border-radius: 10px 10px 0 0; /* Redondear las esquinas superiores */
+}
+
+.containerArtist .details {
+    background-color: #eee;
+    padding: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    width: 80%;
+    margin: 0 auto;
+    border-radius: 10px; /* Redondear las esquinas */
+}
+
+.containerArtist .content > div {
+    background-color: #ddd;
+    padding: 20px;
+    border-radius: 10px; /* Redondear las esquinas */
+}
+
+.containerArtist .details .like-report-container {
+    align-self: center;
+}
+
+.containerArtist .details .containerStars {
+    align-self: center;
+}
+
+.containerArtist .details p {
+    align-self: center;
+}
+
+.containerArtist .details {
+    gap: 10px;
+}
+
+.containerArtist .content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.containerArtist .content > div {
+    background-color: #ddd;
+    padding: 20px;
+    border-radius: 10px; /* Redondear las esquinas */
+}
