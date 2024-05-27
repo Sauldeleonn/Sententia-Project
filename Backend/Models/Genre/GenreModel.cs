@@ -44,7 +44,7 @@ namespace Models.Genre
 
     #region get by id
 
-    public class GenreGet_Request
+    public class GenreGetById_Request
     {
         //the id of the genre
         [Required]
