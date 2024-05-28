@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("API_Sententia")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7f32ee847ed02d7b8e95b3eeefaac01d5c514983")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+439b941eab4d98df47de8d29cc05471f33bc0443")]
 [assembly: System.Reflection.AssemblyProductAttribute("API_Sententia")]
 [assembly: System.Reflection.AssemblyTitleAttribute("API_Sententia")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
