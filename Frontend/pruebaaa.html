@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+        }
+
+        .container {
+            display: flex;
+            flex: 1;
+        }
+
+        .sidebar {
+            background-color: #ccc;
+            padding: 10px;
+            width: 200px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .sidebar button {
+            padding: 10px;
+            border: none;
+            background-color: #888;
+            color: white;
+            cursor: pointer;
+        }
+
+        .sidebar button:hover {
+            background-color: #555;
+        }
+
+        .main-content {
+            flex: 1;
+            padding: 20px;
+            background-color: #f0f0f0;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .main-content .header-box {
+            background-color: #bbb;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .main-content .content-box {
+            background-color: #ddd;
+            flex: 1;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .download-button {
+            align-self: flex-end;
+            padding: 10px 20px;
+            background-color: #888;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        .download-button:hover {
+            background-color: #555;
+        }
+
+        footer {
+            background-color: #444;
+            color: white;
+            text-align: center;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <button onclick="showContent('Manage')">Manage</button>
+            <button onclick="showContent('Staff')">Staff</button>
+            <button onclick="showContent('Song')">Song</button>
+            <button onclick="showContent('Album')">Album</button>
+            <button onclick="showContent('Artist')">Artist</button>
+            <button onclick="showContent('Band')">Band</button>
+            <button onclick="showContent('Tag')">Tag</button>
+            <button onclick="showContent('Language')">Language</button>
+            <button onclick="showContent('Genre')">Genre</button>
+            <button onclick="showContent('Infractions')">Infractions</button>
+        </div>
+        <div class="main-content">
+            <div class="header-box" id="header-box">
+                Select an option from the sidebar
+            </div>
+            <div class="content-box" id="content-box">
+                Content will be displayed here.
+            </div>
+            <button class="download-button">Download</button>
+        </div>
+    </div>
+    <footer>
+        Footer content
+    </footer>
+    <script>
+        function showContent(section) {
+            document.getElementById('header-box').innerText = section;
+            document.getElementById('content-box').innerText = 'Content for ' + section + ' will be displayed here.';
+        }
+    </script>
+</body>
+</html>
