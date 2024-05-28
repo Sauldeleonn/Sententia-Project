@@ -1,0 +1,70 @@
+main {
+    font-family: Arial, sans-serif !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    height: 100vh !important;
+}
+
+.containerControl {
+    display: flex;
+    flex: 1;
+}
+
+.containerControl .sidebar {
+    margin-top: 100PX;
+    background-color: #5FC1CA;
+    padding: 10px;
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.containerControl .sidebar button {
+    padding: 10px;
+    border: none;
+    background-color: #0FA4AF;
+    color: white;
+    cursor: pointer;
+}
+
+.containerControl .sidebar button:hover {
+    background-color: #555;
+}
+
+.containerControl .main-content {
+    margin-top: 10PX;
+    flex: 1;
+    padding: 20px;
+    background-color: #87cfd8;
+    display: flex;
+    flex-direction: column;
+}
+
+.containerControl .main-content .header-box {
+    background-color: #bbb;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.containerControl .main-content .content-box {
+    background-color: #afdde5;
+    flex: 1;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.containerControl .download-button {
+    align-self: flex-end;
+    padding: 10px 20px;
+    background-color: #0FA4AF;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.containerControl .download-button:hover {
+    background-color: #555;
+}
