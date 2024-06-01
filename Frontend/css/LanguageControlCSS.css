@@ -1,0 +1,78 @@
+/* Añade esto a tu CSS existente (styles.css o ControlCenter.css) */
+
+/* Estilo para los botones generales */
+button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    margin: 5px;
+}
+
+/* Estilo específico para el botón de crear lenguaje */
+#create-language-button {
+    background-color: #007BFF;
+    color: white;
+}
+
+#create-language-button:hover {
+    background-color: #0056b3;
+}
+
+/* Estilo específico para el botón de eliminar lenguaje */
+#delete-language-button {
+    background-color: #dc3545;
+    color: white;
+}
+
+#delete-language-button:hover {
+    background-color: #c82333;
+}
+
+/* Estilo para los inputs del formulario de lenguaje */
+#language-form input {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Estilo para el botón de submit */
+#submit-language-button {
+    background-color: #28a745;
+    color: white;
+}
+
+#submit-language-button:hover {
+    background-color: #218838;
+}
+
+/* Estilo para la lista de lenguajes */
+#language-list {
+    margin-top: 20px;
+}
+
+/* Estilo para cada lenguaje en la lista */
+#language-list div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #ff0000;
+}
+
+/* Estilo para los botones de eliminar en la lista de lenguajes */
+#language-list button {
+    background-color: #dc3545;
+    color: white;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+}
+
+#language-list button:hover {
+    background-color: #c82333;
+}
