@@ -1,18 +1,17 @@
 <!DOCTYPE html>
-
 <html lang="en" dir="ltr">
-
 <head>
   <meta charset="UTF-8">
   <title>Sententia</title>
   <link rel="icon" href="imagenes/file-earmark-music-fill.ico" type="image/x-icon">
   <link rel="stylesheet" href="css/SententiaHome.css">
   <link rel="stylesheet" href="css/ControlCenter.css">
-  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css'><link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="css/GenreControlCSS.css">
+  <link rel="stylesheet" href="css/LanguageControlCSS.css">
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css'>
   <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
-
 <body>
   <header>
     <nav>
@@ -54,42 +53,36 @@
     </nav>
   </header>
 
-
   <main>
-
-    
     <div class="containerControl">
-        <div class="sidebar">
-            <button onclick="showContent('Manage')">Manage</button>
-            <button onclick="showContent('Staff')">Staff</button>
-            <button onclick="showContent('Song')">Song</button>
-            <button onclick="showContent('Album')">Album</button>
-            <button onclick="showContent('Artist')">Artist</button>
-            <button onclick="showContent('Band')">Band</button>
-            <button onclick="showContent('Tag')">Tag</button>
-            <button onclick="showContent('Language')">Language</button>
-            <button onclick="showContent('Genre')">Genre</button>
-            <button onclick="showContent('Infractions')">Infractions</button>
+      <div class="sidebar">
+        <button onclick="showContent('Manage')">Manage</button>
+        <button onclick="showContent('Staff')">Staff</button>
+        <button onclick="showContent('Song')">Song</button>
+        <button onclick="showContent('Album')">Album</button>
+        <button onclick="showContent('Artist')">Artist</button>
+        <button onclick="showContent('Band')">Band</button>
+        <button onclick="showContent('Tag')">Tag</button>
+        <button onclick="showContent('Language')">Language</button>
+        <button onclick="showContent('Genre')">Genre</button>
+        <button onclick="showContent('Infractions')">Infractions</button>
+      </div>
+      <div class="main-content">
+        <div class="header-box" id="header-box">
+          Select an option from the sidebar
         </div>
-        <div class="main-content">
-            <div class="header-box" id="header-box">
-                Select an option from the sidebar
-            </div>
-            <div class="content-box" id="content-box">
-                Content will be displayed here.
-            </div>
-            <button class="download-button">Download</button>
+        <div class="content-box" id="content-box">
+          Content will be displayed here.
         </div>
+        <button class="download-button">Download</button>
+      </div>
     </div>
-
-    
-
-
-
   </main>
 
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="js/SententiaNavBar.js"></script>
   <script src="js/ControlCenter.js"></script>
+  <script src="js/GenreControl.js"></script>
+  <script src="js/LanguageControl.js"></script>
 </body>
-
 </html>
