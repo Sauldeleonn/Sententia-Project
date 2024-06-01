@@ -37,5 +37,28 @@ namespace API_Sententia.Controllers
 #endif
             }
         }
+
+        [HttpGet]
+        public async Task<ActionResult<SongPost_Response>> GetSongs()
+        {
+            try
+            {
+                var response = await _SongService.GetSongs();
+
+                if (response == null)
+                {
+                    return NotFound();
+                }
+                return Ok(response);
+            }
+            catch (Exception e)
+            {
+#if DEBUG
+                return StatusCode(500, new { mensaje = e.Message });
+#else
+                return StatusCode(500, new { mensaje = "An error occurred while processing the request,report to the mail in the footer" });
+#endif
+            }
+        }
     }
 }

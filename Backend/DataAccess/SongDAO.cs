@@ -28,9 +28,12 @@ namespace DataAccess
         }
 
         //get
-        public async Task<List<SongDetail>> GetSong()
+        public async Task<List<MusicalElement>> GetAllSongDetailsAsync()
         {
-            return await _context.SongDetails.ToListAsync();
+            return await _context.MusicalElements
+                .Include(me => me.MusicalElement3) // Includes the SongDetail related to MusicalElement
+                .Where(me => me.MusicalElement3 != null) // Filters out only those with SongDetail
+                .ToListAsync();
         }
 
         //get by id

@@ -47,5 +47,87 @@ namespace Business
 
             return response;
         }
+
+        public async Task<SongGetAll_Response> GetSongs()
+         {
+            //automapper configuration
+            var config = new MapperConfiguration(cfg => cfg.CreateMap<MusicalElement, SongModel>().ReverseMap());
+            var mapper = new Mapper(config);
+
+            SongGetAll_Response response = new SongGetAll_Response();
+
+            //map the song details to the response
+            var songDetails = await _SongDAO.GetAllSongDetailsAsync();
+            //and map the song release date to the response
+            response.Songs = songDetails.Select(songDetail => new SongModel
+            {
+                MusicalElementId = songDetail.MusicalElementId,
+                Name = songDetail.Name,
+                Bio = songDetail.Bio,
+                MusicalElementTypeId = songDetail.MusicalElementTypeId,
+                ReleaseDate = songDetail.MusicalElement3.ReleaseDate
+            }).ToList();
+
+            return response;
+        }
+
+        //get song by id
+        public async Task<SongGetById_Response> GetSongById(int id)
+        {
+            var response = await _SongDAO.GetSongById(id);
+
+            var config = new MapperConfiguration(cfg => cfg.CreateMap<SongDetail, SongGetById_Response>().ReverseMap());
+            var mapper = new Mapper(config);
+
+            var responseModel = mapper.Map<SongGetById_Response>(response);
+
+            return responseModel;
+        }
+
+        //get all songs
+
+        //public async Task<SongGetAll_Response> GetSongs()
+        //{
+        //    var response = await _SongDAO.GetAllSongDetailsAsync();
+
+        //    var config = new MapperConfiguration(cfg => cfg.CreateMap<SongDetail, SongGetAll_Response>().ReverseMap());
+        //    var mapper = new Mapper(config);
+
+        //    var responseModel = mapper.Map<SongGetAll_Response>(response);
+
+        //    return responseModel;
+        //}
+
+        //put song
+
+        //public async Task<SongPut_Response> UpdateSong(SongPut_Request put_Request)
+        //{
+        //    var config = new MapperConfiguration(cfg => cfg.CreateMap<SongPut_Request, SongDetail>().ReverseMap());
+        //    var reqToSongMapper = new Mapper(config);
+
+        //    var config2 = new MapperConfiguration(cfg => cfg.CreateMap<SongPut_Response, SongDetail>().ReverseMap());
+        //    var resToSongMapper = new Mapper(config2);
+
+        //    var songEntity = reqToSongMapper.Map<SongDetail>(put_Request);
+
+        //    await _SongDAO.UpdateSong(songEntity);
+
+        //    var response = resToSongMapper.Map<SongPut_Response>(songUpdated);
+
+        //    return response;
+        //}
+
+        //delete song   
+        public async Task<SongDelete_Response> DeleteSong(int id)
+        {
+            var response = await _SongDAO.DeleteSong(id);
+
+            var config = new MapperConfiguration(cfg => cfg.CreateMap<SongDetail, SongDelete_Response>().ReverseMap());
+            var mapper = new Mapper(config);
+
+            var responseModel = mapper.Map<SongDelete_Response>(response);
+
+            return responseModel;
+        }
     }
 }

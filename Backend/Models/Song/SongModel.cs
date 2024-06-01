@@ -51,7 +51,7 @@ namespace Models.Song
 
     public class SongGetAll_Response
     {
-        List<SongModel> Songs { get; set; }
+        public List<SongModel> Songs { get; set; }
     }
 
     #endregion
