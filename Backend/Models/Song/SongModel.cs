@@ -94,6 +94,8 @@ namespace Models.Song
     public class SongPut_Request
     {
         [Required]
+        public int MusicalElementId { get; set; }
+        [Required]
         [StringLength(50)]
         public string Name { get; set; } = null!;
         [Required]

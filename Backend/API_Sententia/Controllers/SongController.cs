@@ -39,7 +39,7 @@ namespace API_Sententia.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<SongPost_Response>> GetSongs()
+        public async Task<ActionResult<SongGetAll_Response>> GetSongs()
         {
             try
             {
@@ -63,7 +63,7 @@ namespace API_Sententia.Controllers
 
         [HttpGet]
         [Route("Popular")]
-        public async Task<ActionResult<SongPost_Response>> GetPopularSongs()
+        public async Task<ActionResult<SongGetAll_Response>> GetPopularSongs()
         {
             try
             {
@@ -76,6 +76,79 @@ namespace API_Sententia.Controllers
                 {
                     return NotFound();
                 }
+                return Ok(response);
+            }
+            catch (Exception e)
+            {
+#if DEBUG
+                return StatusCode(500, new { mensaje = e.Message });
+#else
+                return StatusCode(500, new { mensaje = "An error occurred while processing the request,report to the mail in the footer" });
+#endif
+            }
+        }
+
+        [HttpGet]
+        [Route("{id}")]
+        public async Task<ActionResult<SongGetById_Response>> GetSongById(int id)
+        {
+            try
+            {
+                var response = await _SongService.GetSongById(id);
+
+                if (response == null)
+                {
+                    return NotFound();
+                }
+                return Ok(response);
+            }
+            catch (Exception e)
+            {
+#if DEBUG
+                return StatusCode(500, new { mensaje = e.Message });
+#else
+                return StatusCode(500, new { mensaje = "An error occurred while processing the request,report to the mail in the footer" });
+#endif
+            }
+        }
+
+        [HttpPut]
+        public async Task<ActionResult<SongPut_Response>> UpdateSong(SongPut_Request put_Request)
+        {
+            try
+            {
+                var response = await _SongService.UpdateSong(put_Request);
+
+                if (response == null)
+                {
+                    return NotFound();
+                }
+
+                return Ok(response);
+            }
+            catch (Exception e)
+            {
+#if DEBUG
+                return StatusCode(500, new { mensaje = e.Message });
+#else
+                return StatusCode(500, new { mensaje = "An error occurred while processing the request,report to the mail in the footer" });
+#endif
+            }
+        }
+
+        [HttpDelete]
+        [Route("{id}")]
+        public async Task<ActionResult<SongDelete_Response>> DeleteSong(int id)
+        {
+            try
+            {
+                var response = await _SongService.DeleteSong(id);
+
+                if (response == null)
+                {
+                    return NotFound();
+                }
+
                 return Ok(response);
             }
             catch (Exception e)

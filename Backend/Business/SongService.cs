@@ -74,48 +74,49 @@ namespace Business
         //get song by id
         public async Task<SongGetById_Response> GetSongById(int id)
         {
-            var response = await _SongDAO.GetSongById(id);
+            var song = await _SongDAO.GetSongById(id);
 
-            var config = new MapperConfiguration(cfg => cfg.CreateMap<SongDetail, SongGetById_Response>().ReverseMap());
-            var mapper = new Mapper(config);
+            var response = new SongGetById_Response
+            {
+                MusicalElementId = song.MusicalElementId,
+                Name = song.Name,
+                Bio = song.Bio,
+                MusicalElementTypeId = song.MusicalElementTypeId,
+                ReleaseDate = song.MusicalElement3.ReleaseDate
+            };
 
-            var responseModel = mapper.Map<SongGetById_Response>(response);
-
-            return responseModel;
+            return response;
         }
 
-        //get all songs
-
-        //public async Task<SongGetAll_Response> GetSongs()
-        //{
-        //    var response = await _SongDAO.GetAllSongDetailsAsync();
-
-        //    var config = new MapperConfiguration(cfg => cfg.CreateMap<SongDetail, SongGetAll_Response>().ReverseMap());
-        //    var mapper = new Mapper(config);
-
-        //    var responseModel = mapper.Map<SongGetAll_Response>(response);
-
-        //    return responseModel;
-        //}
-
         //put song
+        public async Task<SongPut_Response> UpdateSong(SongPut_Request put_Request)
+        {
+            var musicalElement = new DataAccess.Repository.Entities.MusicalElement
+            {
+                MusicalElementId = put_Request.MusicalElementId,
+                Name = put_Request.Name,
+                Bio = put_Request.Bio,
+                MusicalElementTypeId = put_Request.MusicalElementTypeId,
+                MusicalElement3 = new DataAccess.Repository.Entities.SongDetail // Initialize MusicalElement3
+                {
+                    ReleaseDate = put_Request.ReleaseDate
+                }
+            };
 
-        //public async Task<SongPut_Response> UpdateSong(SongPut_Request put_Request)
-        //{
-        //    var config = new MapperConfiguration(cfg => cfg.CreateMap<SongPut_Request, SongDetail>().ReverseMap());
-        //    var reqToSongMapper = new Mapper(config);
+            var result = await _SongDAO.UpdateSong(musicalElement);
 
-        //    var config2 = new MapperConfiguration(cfg => cfg.CreateMap<SongPut_Response, SongDetail>().ReverseMap());
-        //    var resToSongMapper = new Mapper(config2);
+            if (result == null)
+            {
+                return null;
+            }
 
-        //    var songEntity = reqToSongMapper.Map<SongDetail>(put_Request);
+            var response = new SongPut_Response
+            {
+                MusicalElementId = result.MusicalElementId
+            };
 
-        //    await _SongDAO.UpdateSong(songEntity);
-
-        //    var response = resToSongMapper.Map<SongPut_Response>(songUpdated);
-
-        //    return response;
-        //}
+            return response;
+        }
 
         //delete song   
         public async Task<SongDelete_Response> DeleteSong(int id)
