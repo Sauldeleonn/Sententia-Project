@@ -60,5 +60,32 @@ namespace API_Sententia.Controllers
 #endif
             }
         }
+
+        [HttpGet]
+        [Route("Popular")]
+        public async Task<ActionResult<SongPost_Response>> GetPopularSongs()
+        {
+            try
+            {
+                var response = await _SongService.GetSongs();
+
+                //limit the response to 10 random songs
+                response.Songs = response.Songs.OrderBy(x => Guid.NewGuid()).Take(10).ToList(); //randomize the list
+
+                if (response == null)
+                {
+                    return NotFound();
+                }
+                return Ok(response);
+            }
+            catch (Exception e)
+            {
+#if DEBUG
+                return StatusCode(500, new { mensaje = e.Message });
+#else
+                return StatusCode(500, new { mensaje = "An error occurred while processing the request,report to the mail in the footer" });
+#endif
+            }
+        }
     }
 }
