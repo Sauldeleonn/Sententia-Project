@@ -113,7 +113,7 @@ namespace API_Sententia.Controllers
         }
 
         [HttpPut]
-        public async Task<ActionResult<SongPut_Response>> UpdateSong(SongPut_Request put_Request)
+        public async Task<ActionResult<SongPut_Response>> UpdateSong([FromBody]SongPut_Request put_Request)
         {
             try
             {
