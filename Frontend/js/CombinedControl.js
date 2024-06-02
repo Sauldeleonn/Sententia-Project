@@ -195,7 +195,7 @@ function showSongControls() {
         </div>
         <div id="song-form" style="display:none;">
             <input type="text" id="song-name" placeholder="Nombre de la canción">
-            <input type="text" id="song-bio" placeholder="Biografía de la canción">
+            <input type="text" id="song-description" placeholder="Biografía de la canción">
             <input type="date" id="song-release-date" placeholder="Fecha de lanzamiento">
             <button id="submit-song-button">Submit</button>
         </div>
@@ -220,17 +220,18 @@ function showSongControls() {
 
 function createSong() {
     const name = $('#song-name').val();
-    const bio = $('#song-bio').val();
+    const bio = $('#song-description').val();
     const releaseDate = $('#song-release-date').val();
+    const musicalElementTypeId = 1;
 
     $.ajax({
         url: 'https://localhost:7090/Song',
         type: 'POST',
         contentType: 'application/json',
         data: JSON.stringify({
+            musicalElementTypeId: musicalElementTypeId,
             name: name,
             bio: bio,
-            musicalElementTypeId: 1,
             releaseDate: releaseDate
         }),
         success: function(response) {
@@ -243,6 +244,8 @@ function createSong() {
         }
     });
 }
+
+
 
 function loadSongsForDeletion() {
     $.ajax({
@@ -319,7 +322,7 @@ function editSong(musicalElementId) {
                 const updatedSongData = {
                     musicalElementId: musicalElementId,
                     name: $('#song-name').val(),
-                    bio: $('#song-bio').val(),
+                    bio: $('#song-description').val(),
                     musicalElementTypeId: 1,
                     releaseDate: $('#song-release-date').val()
                 };
