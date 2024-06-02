@@ -1,0 +1,88 @@
+/* Añade esto a tu CSS existente (styles.css o ControlCenter.css) */
+
+/* Estilo para los botones generales */
+button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    margin: 5px;
+}
+
+/* Estilo específico para el botón de crear canción */
+#create-song-button {
+    background-color: #007BFF;
+    color: white;
+}
+
+#create-song-button:hover {
+    background-color: #0056b3;
+}
+
+/* Estilo específico para el botón de eliminar canción */
+#delete-song-button {
+    background-color: #dc3545;
+    color: white;
+}
+
+#delete-song-button:hover {
+    background-color: #c82333;
+}
+
+/* Estilo específico para el botón de editar canción */
+#edit-song-button {
+    background-color: #ffc107;
+    color: black;
+}
+
+#edit-song-button:hover {
+    background-color: #e0a800;
+}
+
+/* Estilo para los inputs del formulario de canción */
+#song-form input {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Estilo para el botón de submit */
+#submit-song-button {
+    background-color: #28a745;
+    color: white;
+}
+
+#submit-song-button:hover {
+    background-color: #218838;
+}
+
+/* Estilo para la lista de canciones */
+#song-list {
+    margin-top: 20px;
+}
+
+/* Estilo para cada canción en la lista */
+#song-list div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #ffbf00;
+}
+
+/* Estilo para los botones de eliminar en la lista de canciones */
+#song-list button {
+    background-color: #dc3545;
+    color: white;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+}
+
+#song-list button:hover {
+    background-color: #c82333;
+}
