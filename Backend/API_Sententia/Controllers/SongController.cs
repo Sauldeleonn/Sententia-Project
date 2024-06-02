@@ -16,7 +16,7 @@ namespace API_Sententia.Controllers
 
         //post
         [HttpPost]
-        public async Task<ActionResult<SongPost_Response>> CreateSong(SongPost_Request post_Request)
+        public async Task<ActionResult<SongPost_Response>> CreateSong([FromBody]SongPost_Request post_Request)
         {
             try
             {
