@@ -1,6 +1,6 @@
 $(document).ready(function () {
     $.ajax({
-      url: "https://localhost:7090/Song/Popular",
+      url: "http://www.apimusicalreviews.somee.com/Song/Popular",
       type: "GET",
       success: function (data) {
         const songsContainer = $("#songs-container");
