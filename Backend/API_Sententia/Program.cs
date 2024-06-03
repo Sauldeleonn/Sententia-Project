@@ -17,12 +17,13 @@ namespace API_Sententia
 
             var app = builder.Build();
 
+            //change to deploy to the server
             // Configure the HTTP request pipeline.
-            if (app.Environment.IsDevelopment())
-            {
+            //if (app.Environment.IsDevelopment())
+            //{
                 app.UseSwagger();
                 app.UseSwaggerUI();
-            }
+            //}
 
             app.UseHttpsRedirection();
 
