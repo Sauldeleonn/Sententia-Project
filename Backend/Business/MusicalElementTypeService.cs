@@ -1,5 +1,4 @@
-﻿using API_Sententia;
-using AutoMapper;
+﻿using AutoMapper;
 using DataAccess;
 using Microsoft.Extensions.Configuration;
 using Models.MusicalElementType;
