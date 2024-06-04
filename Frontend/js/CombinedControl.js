@@ -43,7 +43,7 @@ function createLanguage() {
     const name = $('#language-name').val();
 
     $.ajax({
-        url: 'https://localhost:7090/Language',
+        url: 'http://www.apimusicalreviews.somee.com/Language',
         type: 'POST',
         contentType: 'application/json',
         data: JSON.stringify({
@@ -62,7 +62,7 @@ function createLanguage() {
 
 function loadLanguagesForDeletion() {
     $.ajax({
-        url: 'https://localhost:7090/Language',
+        url: 'http://www.apimusicalreviews.somee.com/Language',
         type: 'GET',
         success: function(response) {
             const languages = response.languages;
@@ -85,7 +85,7 @@ function loadLanguagesForDeletion() {
 
 function deleteLanguage(languageId) {
     $.ajax({
-        url: `https://localhost:7090/Language/${languageId}`,
+        url: `http://www.apimusicalreviews.somee.com/Language/${languageId}`,
         type: 'DELETE',
         success: function(response) {
             alert('Lenguaje eliminado con éxito');
@@ -130,7 +130,7 @@ function createGenre() {
     const description = $('#genre-description').val();
 
     $.ajax({
-        url: 'https://localhost:7090/Genre', 
+        url: 'http://www.apimusicalreviews.somee.com/Genre', 
         type: 'POST',
         contentType: 'application/json',
         data: JSON.stringify({
@@ -150,7 +150,7 @@ function createGenre() {
 
 function loadGenresForDeletion() {
     $.ajax({
-        url: 'https://localhost:7090/Genre',
+        url: 'http://www.apimusicalreviews.somee.com/Genre',
         type: 'GET',
         success: function(genres) {
             $('#genre-list').html('');
@@ -172,7 +172,7 @@ function loadGenresForDeletion() {
 
 function deleteGenre(genreId) {
     $.ajax({
-        url: `https://localhost:7090/Genre/${genreId}`,
+        url: `http://www.apimusicalreviews.somee.com/Genre/${genreId}`,
         type: 'DELETE',
         success: function(response) {
             alert('Género eliminado con éxito');
@@ -225,7 +225,7 @@ function createSong() {
     const musicalElementTypeId = 1;
 
     $.ajax({
-        url: 'https://localhost:7090/Song',
+        url: 'http://www.apimusicalreviews.somee.com/Song',
         type: 'POST',
         contentType: 'application/json',
         data: JSON.stringify({
@@ -249,7 +249,7 @@ function createSong() {
 
 function loadSongsForDeletion() {
     $.ajax({
-        url: 'https://localhost:7090/Song',
+        url: 'http://www.apimusicalreviews.somee.com/Song',
         type: 'GET',
         success: function(response) {
             const songs = response.songs;
@@ -272,7 +272,7 @@ function loadSongsForDeletion() {
 
 function deleteSong(musicalElementId) {
     $.ajax({
-        url: `https://localhost:7090/Song/${musicalElementId}`,
+        url: `http://www.apimusicalreviews.somee.com/Song/${musicalElementId}`,
         type: 'DELETE',
         success: function(response) {
             alert('Canción eliminada con éxito');
@@ -287,7 +287,7 @@ function deleteSong(musicalElementId) {
 
 function loadSongsForEditing() {
     $.ajax({
-        url: 'https://localhost:7090/Song',
+        url: 'http://www.apimusicalreviews.somee.com/Song',
         type: 'GET',
         success: function(response) {
             const songs = response.songs;
@@ -310,7 +310,7 @@ function loadSongsForEditing() {
 
 function editSong(musicalElementId) {
     $.ajax({
-        url: `https://localhost:7090/Song/${musicalElementId}`,
+        url: `http://www.apimusicalreviews.somee.com/Song/${musicalElementId}`,
         type: 'GET',
         success: function(song) {
             $('#song-form').show();
@@ -328,7 +328,7 @@ function editSong(musicalElementId) {
                 };
 
                 $.ajax({
-                    url: 'https://localhost:7090/Song',
+                    url: 'http://www.apimusicalreviews.somee.com/Song',
                     type: 'PUT',
                     contentType: 'application/json',
                     data: JSON.stringify(updatedSongData),
