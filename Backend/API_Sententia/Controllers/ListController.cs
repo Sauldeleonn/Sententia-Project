@@ -16,6 +16,7 @@ namespace API_Sententia.Controllers
         }
 
         [HttpPost]
+        [ProducesResponseType(typeof(ListPost_Response), 200)]
         public IActionResult Post([FromBody] ListPost_Request request)
         {
             var list = new List
@@ -30,6 +31,7 @@ namespace API_Sententia.Controllers
         }
 
         [HttpGet]
+        [ProducesResponseType(typeof(ListPost_Response), 200)]
         public IActionResult GetAll()
         {
             var lists = _context.Lists.ToList();
@@ -46,6 +48,7 @@ namespace API_Sententia.Controllers
         }
 
         [HttpGet("{id}")]
+        [ProducesResponseType(typeof(ListPost_Response), 200)]
         public IActionResult GetById(int id)
         {
             var list = _context.Lists.Find(id);
@@ -72,6 +75,7 @@ namespace API_Sententia.Controllers
         }
 
         [HttpPut]
+        //[ProducesResponseType(typeof(ListPost_Response), 200)]
         public IActionResult Put([FromBody] ListPut_Request request)
         {
             var list = _context.Lists.Find(request.ListId);
@@ -87,6 +91,7 @@ namespace API_Sententia.Controllers
         }
 
         [HttpDelete]
+        [ProducesResponseType(typeof(ListDelete_Response), 200)]
         public IActionResult Delete([FromBody] ListDelete_Request request)
         {
             var list = _context.Lists.Find(request.ListId);
@@ -103,6 +108,7 @@ namespace API_Sententia.Controllers
 
         //add MusicalElement to List
         [HttpPost("AddElement")]
+        [ProducesResponseType(typeof(ListAddMusicalElement_Response), 200)]
         public  IActionResult AddSong([FromBody] ListAddMusicalElement_Request request)
         {
             var list = _context.Lists.Find(request.ListId);
@@ -125,6 +131,7 @@ namespace API_Sententia.Controllers
 
         //remove MusicalElement from List
         [HttpDelete("RemoveSong")]
+        [ProducesResponseType(typeof(ListRemoveMusicalElement_Response), 200)]
         public IActionResult RemoveSong([FromBody] ListRemoveMusicalElement_Request request)
         {
             var list = _context.Lists.Find(request.ListId);
