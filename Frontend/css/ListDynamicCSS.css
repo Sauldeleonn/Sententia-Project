@@ -1,0 +1,98 @@
+/* Estilos para el contenedor principal */
+#content-boxLists {
+    background-color: #5FC1CA;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 80%;
+    max-width: 600px;
+    text-align: center;
+    margin: 0 auto; /* Asegura que el contenedor esté centrado horizontalmente */
+}
+
+/* Botones */
+#content-boxLists button {
+    background-color: #024950;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    margin: 10px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+#content-boxLists button:hover {
+    background-color: #0056b3;
+}
+
+/* Campos de entrada */
+#content-boxLists input[type="text"] {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+/* Contenedor de las listas */
+#list-list div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px 0;
+}
+
+#list-list div span {
+    font-size: 16px;
+}
+
+#list-list div button {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+#list-list div button:hover {
+    background-color: #c82333;
+}
+
+/* Selectores */
+#content-boxLists select {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+/* Encabezados de secciones */
+#content-boxLists div {
+    margin: 20px 0;
+}
+
+#content-boxLists label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+/* Contenedor padre para centrar el contenido */
+.center-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 40vh; /* Altura mínima para centrar verticalmente */
+    background-color: #87CFD8; /* Color de fondo para el contenedor */
+}

@@ -8,6 +8,8 @@ function showContent(section) {
         showGenreControls();
     } else if (section === 'Song') {
         showSongControls();
+    } else if (section === 'List') {
+        showListControls();
     } else {
         document.getElementById('content-box').innerText = 'Content for ' + section + ' will be displayed here.';
     }
@@ -315,37 +317,81 @@ function editSong(musicalElementId) {
         success: function(song) {
             $('#song-form').show();
             $('#song-name').val(song.name);
-            $('#song-bio').val(song.bio);
+            $('#song-description').val(song.bio);
             $('#song-release-date').val(song.releaseDate);
 
             $('#submit-song-button').off('click').on('click', function() {
-                const updatedSongData = {
-                    musicalElementId: musicalElementId,
-                    name: $('#song-name').val(),
-                    bio: $('#song-description').val(),
-                    musicalElementTypeId: 1,
-                    releaseDate: $('#song-release-date').val()
-                };
-
-                $.ajax({
-                    url: 'http://www.apimusicalreviews.somee.com/Song',
-                    type: 'PUT',
-                    contentType: 'application/json',
-                    data: JSON.stringify(updatedSongData),
-                    success: function(response) {
-                        alert('Canción actualizada con éxito');
-                        $('#song-form').hide();
-                    },
-                    error: function(error) {
-                        console.error('Error updating song:', error);
-                        alert('Error al actualizar la canción');
-                    }
-                });
+                updateSong(musicalElementId);
             });
         },
         error: function(error) {
-            console.error('Error fetching song:', error);
-            alert('Error al obtener la canción');
+            console.error('Error fetching song details:', error);
+            alert('Error al obtener los detalles de la canción');
         }
+    });
+}
+
+function updateSong(musicalElementId) {
+    const name = $('#song-name').val();
+    const bio = $('#song-description').val();
+    const releaseDate = $('#song-release-date').val();
+    const musicalElementTypeId = 1;
+
+    $.ajax({
+        url: `http://www.apimusicalreviews.somee.com/Song/${musicalElementId}`,
+        type: 'PUT',
+        contentType: 'application/json',
+        data: JSON.stringify({
+            musicalElementId: musicalElementId,
+            musicalElementTypeId: musicalElementTypeId,
+            name: name,
+            bio: bio,
+            releaseDate: releaseDate
+        }),
+        success: function(response) {
+            alert('Canción actualizada con éxito');
+            $('#song-form').hide();
+            loadSongsForEditing();
+        },
+        error: function(error) {
+            console.error('Error updating song:', error);
+            alert('Error al actualizar la canción');
+        }
+    });
+}
+
+
+function showAddSongToListControls() {
+    $.when(
+        $.ajax({ url: 'http://www.apimusicalreviews.somee.com/Song', type: 'GET' }),
+        $.ajax({ url: 'http://www.apimusicalreviews.somee.com/List', type: 'GET' })
+    ).done(function(songsResponse, listsResponse) {
+        const songs = songsResponse[0].songs;
+        const lists = listsResponse[0].lists;
+
+        $('#content-boxLists').html(`
+            <div>
+                <label for="select-song">Seleccione una Canción:</label>
+                <select id="select-song">
+                    ${songs.map(song => `<option value="${song.musicalElementId}">${song.name}</option>`).join('')}
+                </select>
+            </div>
+            <div>
+                <label for="select-list">Seleccione una Lista:</label>
+                <select id="select-list">
+                    ${lists.map(list => `<option value="${list.listId}">${list.name}</option>`).join('')}
+                </select>
+            </div>
+            <button id="submit-add-song-button">Agregar</button>
+        `);
+
+        $('#submit-add-song-button').click(function() {
+            const selectedSongId = $('#select-song').val();
+            const selectedListId = $('#select-list').val();
+            addSongToList(selectedSongId, selectedListId);
+        });
+    }).fail(function(error) {
+        console.error('Error loading songs or lists:', error);
+        alert('Error al cargar canciones o listas');
     });
 }
